@@ -27,7 +27,13 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
   end
 
   def valid_move?(index)
+<<<<<<< HEAD
     index.between?(0,8) && !position_taken?(index)
+=======
+    if index.between?(0,8) && !position_taken?(index)
+      true
+    end
+>>>>>>> 29d40cf8046b38ab7468ed98a075856da2212d0d
   end
 
   def turn_count
@@ -57,6 +63,7 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
     character = current_player
     user_input = gets.chomp
     index = input_to_index(user_input)
+<<<<<<< HEAD
     if valid_move?(index)
       move(index, character)
       draw?
@@ -65,6 +72,19 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8
       turn
     end
   end
+=======
+      until valid_move?(index)
+        puts "Please enter 1-9:"
+        character = current_player
+        user_input = gets.chomp
+        index = input_to_index(user_input)
+      end
+      move(index, character)
+      draw?
+      puts display_board
+    end
+
+>>>>>>> 29d40cf8046b38ab7468ed98a075856da2212d0d
 
   def won?
     WIN_COMBINATIONS.each do |win_combination|
@@ -94,7 +114,11 @@ end
   end
 
   def over?
+<<<<<<< HEAD
     full? || won? || draw?
+=======
+    full? || won?
+>>>>>>> 29d40cf8046b38ab7468ed98a075856da2212d0d
   end
 
   def winner
@@ -114,9 +138,14 @@ end
 end
 
   def play
+<<<<<<< HEAD
     while over? == false
       turn
       #draw?
+=======
+    until over?
+      turn
+>>>>>>> 29d40cf8046b38ab7468ed98a075856da2212d0d
     end
         if won?
           winning_player = winner
